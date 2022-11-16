@@ -5,7 +5,7 @@ pipeline {
 	}
 	
 	environment {
-		PROJECT_ID = 'terraform-gcp-368522 '
+		PROJECT_ID = 'terraform-gcp-368522'
                 CLUSTER_NAME = 'k8-cluster'
                 LOCATION = 'asia-east1'
                 CREDENTIALS_ID = 'gcp-jenkins'		
