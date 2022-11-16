@@ -8,7 +8,7 @@ pipeline {
 		PROJECT_ID = 'terraform-gcp-368522 '
                 CLUSTER_NAME = 'k8-cluster'
                 LOCATION = 'asia-east1'
-                CREDENTIALS_ID = 'terraform-gcp'		
+                CREDENTIALS_ID = 'gcp-jenkins'		
 	}
 	
     stages {
@@ -44,8 +44,8 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				    withCredentials([string(credentialsId: '777', variable: '777')]) {
-            				sh "docker login -u hassnzax -p ${777}"
+				    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+            				sh "docker login -u hassnzax -p ${dockerhub}"
 				    }
 				        myimage.push("${env.BUILD_ID}")
 				    
