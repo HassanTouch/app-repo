@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
           steps{
             script {
-                 withCredentials([file(credentialsId: 'dockerhub', variable: 'hassan')]){
+                 withCredentials([file(credentialsId: 'jenk-777', variable: 'hassan')]){
                             // sh "kubectl config set-context $(kubectl config current-context)"   // --namespace=${namespace}
 
                             sh """
