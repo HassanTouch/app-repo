@@ -11,7 +11,7 @@ Building and deploying an application using Jenkins CI/CD
 #### create deployment from our Docoratize application 
   
  
-Dockerhub jenkins image repository: https://hub.docker.com/repository/docker/omarkorety/simpleapp
+Dockerhub jenkins image repository: https://hub.docker.com/repository/docker/hassnzax/build
 
 Build kubertates cluster using terraform and deploy simple web app 🌐
 using GCP
