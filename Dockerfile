@@ -1,5 +1,9 @@
-FROM tomcat:8.0.20-jre8
+FROM python:3.8-slim-buster
 
-RUN mkdir /usr/local/tomcat/webapps/myapp
+WORKDIR /app
 
-COPY kubernetes/target/kubernetes-1.0-AMIT.war /usr/local/tomcat/webapps/kubernetes-1.0-AMIT.war
+COPY . .
+
+RUN pip3 install -r requirements.txt
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
