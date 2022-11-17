@@ -12,10 +12,10 @@ pipeline {
               withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) { 
 
               sh """
-                docker build .  -t omarkorety/simpleapp:V${BUILD_NUMBER}
+                docker build .  -t hassnzax/build:V${BUILD_NUMBER}
                 echo ${BUILD_NUMBER}
                 docker login -u ${USERNAME} -p ${PASSWORD}
-                docker push omarkorety/simpleapp:V${BUILD_NUMBER}
+                docker push hassnzax/build:V${BUILD_NUMBER}
                 echo ${BUILD_NUMBER} > ../build_num.txt
                 """
                     }
@@ -27,12 +27,12 @@ pipeline {
         stage('Deploy') {
           steps{
             script {
-                 withCredentials([file(credentialsId: 'mysecurity', variable: 'omar')]){
+                 withCredentials([file(credentialsId: 'gcp-jenkins', variable: 'hassan')]){
                             // sh "kubectl config set-context $(kubectl config current-context)"   // --namespace=${namespace}
 
                             sh """
-                              gcloud auth activate-service-account --key-file="$omar"
-                              gcloud container clusters get-credentials my-gke-cluster --zone asia-east1-a --project omars-project-367822
+                              gcloud auth activate-service-account --key-file="$hassan"
+                              gcloud container clusters get-credentials k8-cluster --region asia-east1 --project terraform-gcp-368522
                               export BUILD_NUMBER=\$(cat ../build_num.txt)
                               mv Deployment/deploy.yaml Deployment/deploy.yaml.tmp
                               cat Deployment/deploy.yaml.tmp | envsubst > Deployment/deploy.yaml
