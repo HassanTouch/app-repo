@@ -1,6 +1,8 @@
 # ITI-FinalProject files and Jenkins files
 Building and deploying an application using Jenkins CI/CD
-
+first we must deploye a yaml file to create a pod for jenkins so we can to it
+by using steps installation in this docmuntaion
+https://www.jenkins.io/doc/book/installing/kubernetes/
 
 # content of Jenkins file
 ## jenkins file has 2 stages :
