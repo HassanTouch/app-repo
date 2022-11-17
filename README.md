@@ -1,4 +1,5 @@
-# ITI-FinalProject files and Jenkins files
+# graduation project 
+Note: all pictures located in folder my-pictures
 Building and deploying an application using Jenkins CI/CD
 first we must deploye a yaml file to create a pod for jenkins so we can to it
 by using steps installation in this docmuntaion
